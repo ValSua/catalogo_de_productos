@@ -1,1 +1,43 @@
-<p>list-productos works aqui van los p!</p>
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="mb-0">Catálogo de productos</h2>
+        <div>
+
+        </div>
+        <button class="btn btn-primary" (click)="openProductoCreate()">Agregar producto</button>
+    </div>
+
+    <div *ngIf="isLoading()">
+        <p>Cargando datos...</p>
+    </div>
+
+    <table *ngIf="!isLoading() && productos().length > 0" class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let producto of productos()">
+                <td>{{ producto.productoId }}</td>
+                <td>{{ producto.nombre }}</td>
+                <td>{{ producto.precio }}</td>
+                <td>{{ producto.stock }}</td>
+                <td>
+                    <button class="btn btn-primary btn-sm"
+                        (click)="openProductoEdit(producto.productoId)">Editar</button>
+                    <button class="btn btn-danger btn-sm ms-2"
+                        (click)="eliminarProducto(producto.productoId)">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div *ngIf="!isLoading() && productos().length === 0">
+        <p>No hay productos disponibles.</p>
+    </div>
+</div>

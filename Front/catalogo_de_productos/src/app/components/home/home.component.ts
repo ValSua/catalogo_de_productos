@@ -12,7 +12,7 @@ export class HomeComponent {
   loaded: boolean = true;
 
   constructor(
-    private _router: Router,
+    private router: Router,
   ) {
     this.loaded = true;
   }
@@ -22,7 +22,7 @@ export class HomeComponent {
   }
 
   productos() {
-    this._router.navigate(['/list-productos'])
+    this.router.navigate(['/list-productos'])
   }
 
 }
