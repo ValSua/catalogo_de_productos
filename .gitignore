@@ -1,0 +1,35 @@
+# Evitar archivos de compilación y dependencias
+bin/
+obj/
+FileContentIndex/
+v17/
+
+# Configuración de Visual Studio
+.vs/
+
+# Archivos de usuario de Visual Studio
+*.user
+*.suo
+*.vscode
+
+# Archivos de configuración de compilación
+*.csproj.user
+*.db
+*.mdb
+*.log
+*.bak
+
+# Archivos generados
+*.exe
+*.dll
+*.pdb
+*.cache
+*.class
+
+# Dependencias de paquetes
+packages/
+node_modules/
+
+# Archivos temporales
+*.tmp
+*.swp
