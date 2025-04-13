@@ -7,40 +7,89 @@ body {
     background-color: #f4f4f4;
     flex-direction: column;
 }
-.module-container {
-    text-align: center;
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 60%;
-}
-table {
+
+.container {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+    max-width: 1250px;
+    margin: 0 auto; 
 }
-th, td {
-    border: 1px solid #ddd;
+
+#productos {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  #productos tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #productos th {
     padding: 10px;
     text-align: left;
-}
-th {
-    background-color: #d980f9;
+    background-color: #774888;
     color: white;
+  }
+
+h1 {
+    text-align: center;
+    word-spacing: -5px;
+    font-size: 40px;
+    text-shadow: 1px 1px 1px #8e18a0;
+    margin-bottom: 20px;
 }
+
+table {
+    width: 100%;
+    margin-top: 80px;
+    border-collapse: separate; 
+    margin-top: 80px;
+    border-radius: 10px;
+    overflow: hidden; 
+
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
 button {
-    background: #5b0672;
     color: white;
     border: none;
     padding: 5px 10px;
-    margin: 2px;
+    margin: 3px;
     border-radius: 5px;
     cursor: pointer;
 }
-button:hover {
-    opacity: 0.8;
+
+.buttonAdd {
+    position: absolute;
+    left: 1140px;
+    top: 20px;
+    background-color: #5b0672;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 2px 1px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-button:nth-child(2) {
-    background: #dc3545;
+
+.buttonEdit {
+    background-color: #71108b;
+}
+
+.buttonDelete {
+    background-color: #912f2f;
+}
+
+.buttonDetail {
+    background-color: #5b0672
 }
