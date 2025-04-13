@@ -11,10 +11,9 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin", policy =>
     {
-        policy.WithOrigins("http://localhost:4200")
+        policy.AllowAnyOrigin()
               .AllowAnyMethod()
               .AllowAnyHeader();
-              //.AllowCredentials();
     });
 });
 
@@ -40,7 +39,23 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<CatalogoDbContext>();
-    dbContext.Database.Migrate();
+    int retries = 5;
+    while (retries > 0)
+    {
+        try
+        {
+            dbContext.Database.CanConnect();
+            Console.WriteLine("Successfully connected to the database.");
+            break;
+        }
+        catch (Exception ex)
+        {
+            retries--;
+            if (retries == 0) throw;
+            Console.WriteLine($"Failed to connect to database. Retrying in 5 seconds... ({retries} attempts left). Error: {ex.Message}");
+            Thread.Sleep(5000);
+        }
+    }
 }
 
 app.UseCors("AllowSpecificOrigin");
@@ -48,7 +63,7 @@ app.UseCors("AllowSpecificOrigin");
 app.UseSwagger();
 app.UseSwaggerUI();
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
