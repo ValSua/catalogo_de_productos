@@ -1,18 +1,21 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CATALOGO DE PRODUCTOS - Home</title>
-    <link rel="stylesheet" href="home.component.css">
-</head>
 <body>
-    <div class="home-container">
-        <h1>BIENVENIDO</h1>
-        <p>Este es tu catálogo virtual, da click al botón para ver los productos disponibles</p>
-        <div class="button">
-            <button (click)="productos()">Productos</button>
+    <article>
+        <nav>
+            <ul>
+                <a href="" id="left">Home</a>
+            </ul>
+        </nav>
+        <div class="title-container">
+            <h1 class="fade-in">Bienvenido</h1>
+            <h1 class="fade-in">a tu catalogo de productos</h1>
         </div>
-    </div>
+        <div id="content" class="fade-in-2">
+            <ul type="none">
+                <li><a href="list-productos">Ver Productos</a></li>
+            </ul>
+        </div>
+        <div class="footer">
+            <p>Valsua Industries © </p>
+        </div>
+    </article>
 </body>
-</html>
