@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 <div class="container">
     <div class="card mb-4">
         <div class="card-header">
@@ -18,37 +19,39 @@
 
                     <div class="mb-3">
                         <label for="descripcion" class="form-label">Descripción</label>
-                        <input type="text" class="form-control" id="descripcion" name="descripcion"
+                        <textarea class="form-control" id="descripcion" name="descripcion"
                             [(ngModel)]="createProducto.descripcion" #descripcion="ngModel" required
-                            [ngClass]="{'is-invalid': descripcion.invalid && (descripcion.dirty || descripcion.touched)}" />
-                        <div *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)"
-                            class="invalid-feedback">
+                            [ngClass]="{'is-invalid': descripcion.invalid && (descripcion.dirty || descripcion.touched)}"
+                            rows="4"></textarea>
+                        <div *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)" class="invalid-feedback">
                             La descripción es obligatoria.
                         </div>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="precio" class="form-label">Precio</label>
-                        <input type="price" class="form-control no-spinner" id="precio" name="precio"
-                            [(ngModel)]="createProducto.precio" #precio="ngModel" required
-                            [ngClass]="{'is-invalid': precio.invalid && (precio.dirty || precio.touched)}" />
-                        <div *ngIf="precio.invalid && (precio.dirty || precio.touched)" class="invalid-feedback">
-                            El precio es obligatorio.
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="precio" class="form-label">Precio</label>
+                            <input type="number" class="form-control no-spinner" id="precio" name="precio"
+                                [(ngModel)]="createProducto.precio" #precio="ngModel" required
+                                [ngClass]="{'is-invalid': precio.invalid && (precio.dirty || precio.touched)}" />
+                            <div *ngIf="precio.invalid && (precio.dirty || precio.touched)" class="invalid-feedback">
+                                El precio es obligatorio.
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="stock" class="form-label">Stock disponible</label>
+                            <input type="number" class="form-control" id="stock" name="stock"
+                                [(ngModel)]="createProducto.stock" #stock="ngModel" required
+                                [ngClass]="{'is-invalid': stock.invalid && (stock.dirty || stock.touched)}" />
+                            <div *ngIf="stock.invalid && (stock.dirty || stock.touched)" class="invalid-feedback">
+                                El stock es obligatorio.
+                            </div>
                         </div>
                     </div>
-
-                    <div class="mb-3">
-                        <label for="stock" class="form-label">Stock disponible</label>
-                        <input type="number" class="form-control" id="stock" name="stock"
-                            [(ngModel)]="createProducto.stock" #stock="ngModel" required
-                            [ngClass]="{'is-invalid': stock.invalid && (stock.dirty || stock.touched)}" />
-                        <div *ngIf="stock.invalid && (stock.dirty || stock.touched)" class="invalid-feedback">
-                            El stock es obligatorio.
-                        </div>
-                    </div>
-
                     <div class="d-flex gap-2">
-                        <button type="submit" class="btn btn-success" [disabled]="productoForm.invalid || deshabilitarGuardar()">Guardar</button>
+                        <button type="submit" class="btn btn-success"
+                            [disabled]="productoForm.invalid || deshabilitarGuardar()">Guardar</button>
                         <button type="button" class="btn btn-secondary" (click)="cancelar()">Cancelar</button>
                     </div>
                 </form>
