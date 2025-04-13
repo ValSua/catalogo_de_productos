@@ -5,23 +5,25 @@ import { GetProductoDto } from '../../../models/producto/get-producto-dto';
 import { Producto } from '../../../models/producto/producto';
 import { ProductoService } from '../../../services/producto/producto.service';
 import { ApiResponse } from '../../../models/api-response';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { ProductoDetailComponent } from '../producto-detail/producto-detail.component';
 
 @Component({
   selector: 'app-list-productos',
   imports: [
-    CommonModule
+    CommonModule,
+    MatDialogModule,
   ],
   templateUrl: './list-productos.component.html',
   styleUrl: './list-productos.component.css'
 })
 export class ListProductosComponent implements OnInit{
 
-  edithPath = 'editProducto';
+  edithPath = 'updateProducto';
   createPath = 'createProducto';
 
   constructor(
-    public productoService: ProductoService, public dialog: MatDialog, 
+    private productoService: ProductoService, private dialog: MatDialog, 
     private router: Router,
   ) { }
 
@@ -53,17 +55,20 @@ export class ListProductosComponent implements OnInit{
     this.router.navigate([this.edithPath, id]);
   }
 
+  openProductoDetail(id: number) {
+    this.dialog.open(ProductoDetailComponent, {data: id, disableClose: true}); 
+  }
+
   openProductoCreate() {
     this.router.navigate([this.createPath]);
   }
 
   eliminarProducto(id: number) {
     if (confirm('¿Está seguro que desea eliminar este producto?')) {
-      this.productoService.deleteProducto(id.toString()).subscribe({
+      this.productoService.deleteProducto(id).subscribe({
         next: (response: ApiResponse) => {
-          alert(`Producto eliminado con exito`);
-          this.getAll();
-          if (response.success) {
+          if (response) {
+            alert(`Producto eliminado con exito`);
             this.getAll();
           } 
         },

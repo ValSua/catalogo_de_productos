@@ -1,0 +1,74 @@
+<ng-container *ngIf="!contentLoaded">
+  <section class="d-flex justify-between align-center px-3">
+    <button mat-dialog-close mat-icon-button aria-label="close icon" class="close-btn">
+      <mat-icon>
+        close
+      </mat-icon>
+    </button>
+  </section>
+  <mat-dialog-content class="mat-typography pt-1">
+    <mat-card class="p-0 mb-3">
+      <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" color="warn">
+        <mat-tab label="Detalle del producto">
+          <mat-accordion multi>
+            <!-- General -->
+            <mat-expansion-panel [expanded]="true" class="expansion-header my-3 mx-3 mat-elevation-z1"
+              (opened)="generalOpenState = true" (closed)="generalOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <h4 class="mb-0">
+                    <mat-icon aria-label="user icon">
+                      info
+                    </mat-icon>
+                    Datos generales
+                  </h4>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <section class="dialog-item px-3 mb-3">
+                <div class="info-grid">
+                  <article>
+                    <p>
+                      <span>
+                        Nombre:
+                      </span>
+                      {{dataSource.nombre}}
+                    </p>
+                  </article>
+                  <article>
+                    <p>
+                      <span>
+                        Descripción:
+                      </span>
+                      {{dataSource.descripcion}}
+                    </p>
+                  </article>
+                  <article>
+                    <p>
+                      <span>
+                        Precio:
+                      </span>
+                      {{dataSource.precio}}
+                    </p>
+                  </article>
+                  <article>
+                    <p>
+                      <span>
+                        Stock :
+                      </span>
+                      {{dataSource.stock}}
+                    </p>
+                  </article>
+                </div>
+              </section>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end" class="px-4 py-3">
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial class="primary-btn pl-3">
+      Aceptar
+    </button>
+  </mat-dialog-actions>
+</ng-container>

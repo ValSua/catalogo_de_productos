@@ -23,7 +23,7 @@ export class ProductoService {
       `${this.productosUrl}/getProductos`);
   }
 
-  getProductoById(id: string): Observable<GetProductoDto> {
+  getProductoById(id: number): Observable<GetProductoDto> {
     return this.http.get<GetProductoDto>(
       `${this.productosUrl}/getProductoById/${id}`);
   }
@@ -35,14 +35,14 @@ export class ProductoService {
     );
   }
 
-  updateProducto(id: string, updateProducto: UpdateProductoDto): Observable<ApiResponse> {
+  updateProducto(id: number, updateProducto: UpdateProductoDto): Observable<ApiResponse> {
     return this.http.put<ApiResponse>(
       `${this.productosUrl}/updateProducto/${id}`,
       updateProducto
     );
   }
 
-  deleteProducto(id: string): Observable<ApiResponse> {
+  deleteProducto(id: number): Observable<ApiResponse> {
     return this.http.put<ApiResponse>(
       `${this.productosUrl}/deleteProducto/${id}`,
       {}
