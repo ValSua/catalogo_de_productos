@@ -26,8 +26,8 @@ export class CreateProductoComponent implements OnInit{
     productoId: 0,
     nombre: '',
     descripcion: '',
-    precio: 0,
-    stock: 0
+    precio: 100,
+    stock: 1
   };
 
   constructor(
@@ -39,6 +39,11 @@ export class CreateProductoComponent implements OnInit{
   }
 
   isLoading: WritableSignal<boolean> = signal(true);
+
+  deshabilitarGuardar(): boolean {
+    return !this.createProducto.precio || this.createProducto.precio <= 0 
+    || !this.createProducto.stock || this.createProducto.stock <= 0;
+  }
 
   guardarCambios() {
     this.productoService.createProducto(this.createProducto).subscribe({

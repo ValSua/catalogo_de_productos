@@ -83,6 +83,11 @@ export class UpdateProductoComponent implements OnInit {
     });
   }
 
+  deshabilitarGuardar(): boolean {
+    return !this.updateProducto.precio || this.updateProducto.precio <= 0 
+    || !this.updateProducto.stock || this.updateProducto.stock <= 0;
+  }
+
   guardarCambios() {
     if (!this.productoId) {
       this.error = 'ID del producto no válido.';
