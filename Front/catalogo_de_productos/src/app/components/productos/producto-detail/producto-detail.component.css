@@ -1,4 +1,19 @@
-::selection{
-    background: #283593;
-    color: #ECEFF1
+.primary-btn {
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 3px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #71108b;
+}
+
+.close-btn{
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 3px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #161215; 
 }
