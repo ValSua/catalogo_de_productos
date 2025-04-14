@@ -12,7 +12,6 @@ button {
 
 .btn-success:hover {
     background-color: #5b0672; 
-
 }
 
 .btn-success:disabled {
@@ -59,4 +58,26 @@ input[type=number].no-spinner::-webkit-outer-spin-button {
     margin-top: 50px; 
 }
 
+.input-group .seamless {
+    border-right: none; 
+    background-color: #fff; 
+    padding-right: 2; 
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.input-group .form-control.seamless {
+    border-left: none; 
+    padding-left: 0; 
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.input-group-text.seamless {
+    color: #595d60; 
+}
 

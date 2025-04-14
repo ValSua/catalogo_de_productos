@@ -23,7 +23,8 @@
                             [(ngModel)]="createProducto.descripcion" #descripcion="ngModel" required
                             [ngClass]="{'is-invalid': descripcion.invalid && (descripcion.dirty || descripcion.touched)}"
                             rows="4"></textarea>
-                        <div *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)" class="invalid-feedback">
+                        <div *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)"
+                            class="invalid-feedback">
                             La descripción es obligatoria.
                         </div>
                     </div>
@@ -31,9 +32,12 @@
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="precio" class="form-label">Precio</label>
-                            <input type="number" class="form-control no-spinner" id="precio" name="precio"
-                                [(ngModel)]="createProducto.precio" #precio="ngModel" required
-                                [ngClass]="{'is-invalid': precio.invalid && (precio.dirty || precio.touched)}" />
+                            <div class="input-group">
+                                <span class="input-group-text seamless">COP</span>
+                                <input type="number" class="form-control no-spinner seamless" id="precio" name="precio"
+                                    [(ngModel)]="createProducto.precio" #precio="ngModel" required
+                                    [ngClass]="{'is-invalid': precio.invalid && (precio.dirty || precio.touched)}" />
+                            </div>
                             <div *ngIf="precio.invalid && (precio.dirty || precio.touched)" class="invalid-feedback">
                                 El precio es obligatorio.
                             </div>
